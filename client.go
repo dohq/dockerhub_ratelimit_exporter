@@ -80,7 +80,7 @@ func getAuthToken(ctx context.Context, username, password string) (string, error
 	defer resp.Body.Close()
 
 	if resp.StatusCode != http.StatusOK {
-		return "", fmt.Errorf("authenticate is failed. status code is %d", resp.StatusCode)
+		return "", fmt.Errorf("authentication failed with status code %d", resp.StatusCode)
 	}
 
 	var res Response

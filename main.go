@@ -28,6 +28,11 @@ func main() {
 	prometheus.MustRegister(c)
 
 	http.Handle("/metrics", promhttp.Handler())
-	log.Println("start exporter")
+	log.Printf("starting exporter on %s", *addr)
+	if len(*username) > 0 {
+		log.Printf("metrics for DockerHub user '%s'", *username)
+	} else {
+		log.Println("metrics for DockerHub user 'Anonymous'")
+	}
 	log.Fatal(http.ListenAndServe(*addr, nil))
 }
