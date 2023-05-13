@@ -8,7 +8,7 @@ RUN mkdir /go/out && go build -o /go/out/dockerhub_ratelimit_exporter
 
 
 # Final Image
-FROM alpine:3.17
+FROM alpine:3.18
 
 LABEL name="dockerhub_ratelimit_exporter" version="1.0.2" \
       description="A exporter for prometheus to check the pull limit of the DockerHub" \
